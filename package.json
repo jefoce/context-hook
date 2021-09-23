@@ -1,6 +1,6 @@
 {
   "name": "context-hook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,9 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/jefoce/context-hook.git"
   },
-  "keywords": [],
+  "keywords": ["react", "redux", "immutable", "hook", "state", "mobx", "context", "observable", "react-component", "data flow", "state management", "reactjs", "utils", "jsx", "tsx"],
   "author": "Egorov Vlad",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jefoce/context-hook/issues"
   },
