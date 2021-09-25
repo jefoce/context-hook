@@ -20,7 +20,7 @@ export const createContextHook = <P extends object | void, R extends object, Nam
   const hookName = `use${pascal}` as const;
   const providerName = `${pascal}Provider` as const;
 
-  Context.displayName = name;
+  Context.displayName = `${pascal}Context`;
 
   return {
     [hookName]: () => useContext(Context),
