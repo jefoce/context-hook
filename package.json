@@ -1,7 +1,7 @@
 {
   "name": "context-hook",
   "version": "1.0.7",
-  "description": "",
+  "description": "Simple util that resolves common cases with react Context API.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -14,6 +14,14 @@
     "url": "git+https://github.com/jefoce/context-hook.git"
   },
   "keywords": [
+    "react-context",
+    "create-context",
+    "create-context-state",
+    "create-react-hook",
+    "create-react-context",
+    "react-component",
+    "state management",
+    "data flow",
     "react",
     "redux",
     "immutable",
@@ -22,9 +30,6 @@
     "mobx",
     "context",
     "observable",
-    "react-component",
-    "data flow",
-    "state management",
     "reactjs",
     "utils",
     "jsx",
