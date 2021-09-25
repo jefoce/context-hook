@@ -1,6 +1,6 @@
 # React Context Hook Builder
 
-[![Version][version]][npm] [![Bundled size][size-badge]][size] ![Typed Codebase][typescript] ![MIT License][license]
+[![Version][version]][npm] [![Bundled size][size-badge]][size] ![Coverage badge gree][coverage-badge-green] ![Typed Codebase][typescript] ![MIT License][license]
 
 [version]: https://flat.badgen.net/npm/v/context-hook
 [npm]: https://npmjs.com/package/context-hook
@@ -8,6 +8,7 @@
 [size]: https://bundlephobia.com/result?p=context-hook
 [size-badge]: https://flat.badgen.net/bundlephobia/minzip/context-hook
 [typescript]: https://flat.badgen.net/badge/icon/TypeScript?icon=typescript&label
+[coverage-badge-green]: https://flat.badgen.net/coveralls/c/github/jekyll/jekyll
 
 Simple util that resolves common cases with react Context API.
 
@@ -19,13 +20,13 @@ Util generates provider and hook dynamically from passed name.
 npm install context-hook
 ```
 
-or
-
 ```terminal
 yarn add context-hook
 ```
 
 ## Usage
+
+> Create context
 
 ```typescript
 /* 
@@ -49,7 +50,11 @@ const useCounterLocal = (props: Props) => {
 };
 
 export const { CounterProvider, useCounter } = createContextHook('Counter', useCounterLocal) ;
+```
 
+> Connect to UI
+
+```typescript
 /* 
  * SomeUi.tsx
  */
@@ -63,7 +68,11 @@ const SomeUi: React.VFC = () => {
     </CounterProvider>
   );
 };
+```
 
+> Use
+
+```typescript
 /* 
  * SomeUiComponent.tsx
  */
