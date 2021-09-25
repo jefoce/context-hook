@@ -14,6 +14,9 @@ type Result<P extends object | void, R extends object, Name extends string> = {
 };
 
 export const createContextHook = <P extends object | void, R extends object, Name extends string>(name: Name, useHook: HookFunc<P, R>) => {
+  if (typeof useHook !== 'function')
+    throw new TypeError('You should to pass hook function.');
+
   const Context = createContext({} as R);
   const pascal = toPascalCase(name);
 
