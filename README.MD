@@ -1,5 +1,13 @@
 # **React Context Hook Builder**
 
+[version]: https://flat.badgen.net/npm/v/context-hook
+[npm]: https://npmjs.com/package/context-hook
+[license]: https://flat.badgen.net/badge/license/MIT/purple
+[size]: https://bundlephobia.com/result?p=context-hook
+[size-badge]: https://flat.badgen.net/bundlephobia/minzip/context-hook
+[typescript]: https://flat.badgen.net/badge/icon/TypeScript?icon=typescript&label
+[downloads-badge]: https://badgen.net/npm/dw/context-hook/red?icon=npm
+
 Simple util that resolves common cases with react Context API.
 
 Util generates provider and hook dynamically from passed name.
@@ -45,22 +53,6 @@ export const {
 } = createContextHook('Counter', useCounterLocal)
 ```
 
-### Built-in
-
-```typescript
-import { useState } from 'react';
-import { createContextHook } from 'context-hook';
-
-export const { CounterProvider, useCounter } = createContextHook('Counter', () => {
-  const [count, setCount] = useState(0);
-
-  const increment = () => setCount((prev) => ++prev);
-  const decrement = () => setCount((prev) => --prev);
-
-  return [count, increment, decrement];
-});
-```
-
 ### With provided payload
 
 ```typescript
@@ -99,7 +91,7 @@ const SomeUi: React.VFC = () => {
 };
 
 // SomeUiComponent.tsx
-import { CounterProvider } from './useCounter';
+import { useCounter } from './useCounter';
 
 export const SomeUiComponent: React.VFC = () => {
   const [count, increment, decrement] = useCounter();
@@ -119,7 +111,7 @@ export const SomeUiComponent: React.VFC = () => {
 
 ```typescript
 // SomeUi.tsx
-import { CounterProvider } from './useCounter';
+import { useCounter } from './useCounter';
 import { SomeUiComponent } from './SomeUiComponent';
 
 const SomeUi: React.VFC = () => {
@@ -131,7 +123,7 @@ const SomeUi: React.VFC = () => {
 };
 
 // SomeUiComponent.tsx
-import { CounterProvider } from './useCounter';
+import { useCounter } from './useCounter';
 
 export const SomeUiComponent: React.VFC = () => {
   const [count, increment, decrement] = useCounter();
