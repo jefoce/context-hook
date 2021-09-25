@@ -5,8 +5,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "test": "jest --watch",
+    "test:coverage": "jest --watch --coverage",
+    "build": "rm -r dist && tsc",
     "publish": "npm publish"
   },
   "repository": {
@@ -43,10 +44,18 @@
   "homepage": "https://github.com/jefoce/context-hook#readme",
   "dependencies": {
     "lodash": "^4.17.21",
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.0",
+    "@testing-library/react-hooks": "^7.0.2",
     "@types/lodash": "^4.14.173",
-    "@types/react": "^17.0.24"
+    "@types/react": "^17.0.24",
+    "jest": "^27.2.2",
+    "jsdom": "^17.0.0",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.4.3"
   }
 }
