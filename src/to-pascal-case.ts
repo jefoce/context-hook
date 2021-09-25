@@ -1,7 +1,7 @@
 import camelCase from 'lodash/camelCase';
 
 export const toPascalCase = <T extends string>(value: T) => {
-  if (value?.length === 0 || typeof value !== 'string') return;
+  if (value?.length === 0 || typeof value !== 'string') return '';
   const camel = camelCase(value);
   return camel[0].toLocaleUpperCase() + camel.slice(1) as PascalCase<T>;
 };

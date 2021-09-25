@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import React, { createContext, useContext } from "react";
 import { PascalCase, toPascalCase } from "./to-pascal-case";
 
 type HookFunc<P extends object | void, R extends object> = void extends P ? () => R : (payload: P) => R;
@@ -14,6 +14,9 @@ type Result<P extends object | void, R extends object, Name extends string> = {
 };
 
 export const createContextHook = <P extends object | void, R extends object, Name extends string>(name: Name, useHook: HookFunc<P, R>) => {
+  if (typeof name !== 'string' || !name)
+    throw new TypeError('You should to pass string name.');
+  
   if (typeof useHook !== 'function')
     throw new TypeError('You should to pass hook function.');
 

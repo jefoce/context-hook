@@ -1,1 +1,1 @@
-export { createContextHook } from './utils/create-context-hook';
+export { createContextHook } from './src/create-context-hook';
