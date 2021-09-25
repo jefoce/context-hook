@@ -1,12 +1,4 @@
-# **React Context Hook Builder**
-
-[version]: https://flat.badgen.net/npm/v/context-hook
-[npm]: https://npmjs.com/package/context-hook
-[license]: https://flat.badgen.net/badge/license/MIT/purple
-[size]: https://bundlephobia.com/result?p=context-hook
-[size-badge]: https://flat.badgen.net/bundlephobia/minzip/context-hook
-[typescript]: https://flat.badgen.net/badge/icon/TypeScript?icon=typescript&label
-[downloads-badge]: https://badgen.net/npm/dw/context-hook/red?icon=npm
+# React Context Hook Builder
 
 Simple util that resolves common cases with react Context API.
 
@@ -24,11 +16,12 @@ or
 yarn add context-hook
 ```
 
-## Build examples
+## Usage
 
-### Separated logic hook and context
+### Void payload
 
 ```typescript
+// useCounter.tsx
 import { useState } from 'react';
 import { createContextHook } from 'context-hook';
 
@@ -44,40 +37,14 @@ const useCounterLocal = () => {
 
 export const { 
 
-  // Using Context.Provider with 'Counter' displayName, where call useCounterLocal.
+  // Uses Context.Provider with 'CounterContext' displayName.
   CounterProvider, 
 
-  // Using useContext(Context).
+  // Uses useContext(Context).
   useCounter 
 
-} = createContextHook('Counter', useCounterLocal)
-```
+} = createContextHook('Counter', useCounterLocal);
 
-### With provided payload
-
-```typescript
-import { useState } from 'react';
-import { createContextHook } from 'context-hook';
-
-type Payload = {
-  defaultCount: number;
-}
-
-export const { CounterProvider, useCounter } = createContextHook('Counter', (payload: Payload) => {
-  const [count, setCount] = useState(payload.defaultCount);
-
-  const increment = () => setCount((prev) => ++prev);
-  const decrement = () => setCount((prev) => --prev);
-
-  return [count, increment, decrement];
-});
-```
-
-## Using examples
-
-### Default
-
-```typescript
 // SomeUi.tsx
 import { CounterProvider } from './useCounter';
 import { SomeUiComponent } from './SomeUiComponent';
@@ -107,9 +74,28 @@ export const SomeUiComponent: React.VFC = () => {
 };
 ```
 
-### With payload
+### Typed payload
 
 ```typescript
+// useCounter.tsx
+import { useState } from 'react';
+import { createContextHook } from 'context-hook';
+
+type Payload = {
+  defaultCount: number;
+}
+
+const useCounterLocal = (payload: Payload) => {
+  const [count, setCount] = useState(payload.defaultCount);
+
+  const increment = () => setCount((prev) => ++prev);
+  const decrement = () => setCount((prev) => --prev);
+
+  return [count, increment, decrement];
+};
+
+export const { CounterProvider, useCounter } = createContextHook('Counter', useCounterLocal) ;
+
 // SomeUi.tsx
 import { useCounter } from './useCounter';
 import { SomeUiComponent } from './SomeUiComponent';
